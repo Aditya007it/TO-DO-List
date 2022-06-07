@@ -6,7 +6,7 @@ const username = encodeURIComponent("Aditya-Kumar");
 const password = encodeURIComponent("Aditya@123");
 
 const app = express();
-const port = 3000;
+
 
 
 // use ejs templating
@@ -165,5 +165,9 @@ app.post("/delete", (req, res) => {
 
 
 
+let port = process.env.port;
+if(port == null || port == ""){
+    port = 3000;
+}
 
 app.listen(port, () => console.log(`Server listening on port ${port}!`))
